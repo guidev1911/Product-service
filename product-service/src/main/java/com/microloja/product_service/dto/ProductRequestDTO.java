@@ -1,29 +1,22 @@
-package com.microloja.product_service.model;
+package com.microloja.product_service.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "products")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ProductRequestDTO {
+
+    @NotBlank(message = "Nome é obrigatório")
     private String name;
+
+    @NotBlank(message = "Descrição é obrigatória")
     private String description;
+
+    @NotNull(message = "Preço é obrigatório")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Preço deve ser maior que zero")
     private BigDecimal price;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

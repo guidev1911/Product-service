@@ -1,17 +1,9 @@
-package com.microloja.product_service.model;
-
-import jakarta.persistence.*;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package com.microloja.product_service.dto;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "products")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductResponseDTO {
+
     private Long id;
     private String name;
     private String description;
@@ -49,4 +41,3 @@ public class Product {
         this.price = price;
     }
 }
-
