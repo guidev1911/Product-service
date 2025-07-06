@@ -1,5 +1,7 @@
 package com.microloja.product_service.dto;
 
+import com.microloja.product_service.model.Product;
+
 import java.math.BigDecimal;
 
 public class ProductResponseDTO {
@@ -8,6 +10,16 @@ public class ProductResponseDTO {
     private String name;
     private String description;
     private BigDecimal price;
+
+    public ProductResponseDTO() {
+    }
+
+    public ProductResponseDTO(Long id, String name, String description, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
     public Long getId() {
         return id;

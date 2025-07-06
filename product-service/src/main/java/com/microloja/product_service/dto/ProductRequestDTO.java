@@ -18,6 +18,15 @@ public class ProductRequestDTO {
     @DecimalMin(value = "0.0", inclusive = false, message = "Preço deve ser maior que zero")
     private BigDecimal price;
 
+    public ProductRequestDTO() {
+    }
+
+    public ProductRequestDTO(String name, String description, BigDecimal price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }

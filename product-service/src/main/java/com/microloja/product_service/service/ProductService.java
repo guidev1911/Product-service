@@ -5,7 +5,6 @@ import com.microloja.product_service.dto.ProductResponseDTO;
 import com.microloja.product_service.exception.ProductNotFoundException;
 import com.microloja.product_service.model.Product;
 import com.microloja.product_service.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +12,11 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    @Autowired
-    private ProductRepository repository;
+    private final ProductRepository repository;
+
+    public ProductService(ProductRepository repository) {
+        this.repository = repository;
+    }
 
     public List<ProductResponseDTO> findAll() {
         return repository.findAll().stream()
