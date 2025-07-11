@@ -13,7 +13,7 @@ public class SwaggerConfig {
     public OpenAPI apiInfo() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Microservice Product")
+                        .title("Micro serviço para produtos")
                         .description("API de microserviço CRUD produtos")
                         .version("1.0"));
     }
