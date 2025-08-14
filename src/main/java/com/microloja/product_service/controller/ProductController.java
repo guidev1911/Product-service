@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/products")
 @Validated
 public class ProductController {
 
@@ -29,31 +29,31 @@ public class ProductController {
     }
     @GetMapping
     public ResponseEntity<List<ProductResponseDTO>> getAll() {
-        logger.info("GET /products");
+        logger.info("GET /api/products");
         return ResponseEntity.ok(service.findAll());
     }
 
     @PostMapping
     public ResponseEntity<ProductResponseDTO> create(@RequestBody @Valid ProductRequestDTO dto) {
-        logger.info("POST /products - Body: {}", dto);
+        logger.info("POST /api/products - Body: {}", dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(dto));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponseDTO> getById(@PathVariable Long id) {
-        logger.info("GET /products/{}", id);
+        logger.info("GET /api/products/{}", id);
         return ResponseEntity.ok(service.findById(id));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponseDTO> update(@PathVariable Long id, @RequestBody @Valid ProductRequestDTO dto) {
-        logger.info("PUT /products/{} - Body: {}", id, dto);
+        logger.info("PUT /api/products/{} - Body: {}", id, dto);
         return ResponseEntity.ok(service.update(id, dto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        logger.info("DELETE /products/{}", id);
+        logger.info("DELETE /api/products/{}", id);
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
